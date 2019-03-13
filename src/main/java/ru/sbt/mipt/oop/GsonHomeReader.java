@@ -19,7 +19,7 @@ public class GsonHomeReader implements HomeReader {
             String json = new String(Files.readAllBytes(Paths.get(filename)));
             return gson.fromJson(json, SmartHome.class);
         } catch (Exception ex) {
-
+            System.out.println("Unable to read this file. Check filename.");
         }
         return null;
     }

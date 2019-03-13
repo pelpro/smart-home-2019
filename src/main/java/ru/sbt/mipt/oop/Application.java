@@ -1,6 +1,8 @@
 package ru.sbt.mipt.oop;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.ArrayList;
 
 public class Application {
 
@@ -10,10 +12,15 @@ public class Application {
         SmartHome smartHome = reader.readSmartHome();
         // начинаем цикл обработки событий
         SensorEvent event = getNextSensorEvent();
+        Collection<EventHandler> EventsCollection = new ArrayList<>();
+        EventsCollection.add(new DoorHandler());
+        EventsCollection.add(new LightHandler());
+        EventsCollection.add(new HallDoorHandler());
         while (event != null) {
             System.out.println("Got event: " + event);
-            LightHandler.handleLightEvent(smartHome, event);
-            DoorHandler.handleDoorEvent(smartHome, event);
+            for (EventHandler handler : EventsCollection) {
+                handler.handleEvent(smartHome, event);
+            }
             event = getNextSensorEvent();
         }
     }
