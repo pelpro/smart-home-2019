@@ -22,7 +22,7 @@ public class TurnOffLight implements Action<Light> {
 
     @Override
     public void launchAction(Light object, String room_name) {
-        if (light_id.equals(object.getId())) {
+        if (light_id.equals(object.getId()) || light_id.equals("hallclose")) {
             room = room_name;
             object.setOn(false);
             System.out.println("Light " + object.getId() + " in room " + room_name + " was turned off.");
