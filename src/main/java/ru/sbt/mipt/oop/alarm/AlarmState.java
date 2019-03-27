@@ -5,4 +5,5 @@ public interface AlarmState {
         void deactivate(String password);
         void alert();
         AlarmState getState();
+        void setState(AlarmState state);
     }

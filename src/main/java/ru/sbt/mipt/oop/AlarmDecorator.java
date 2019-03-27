@@ -25,5 +25,4 @@ public class AlarmDecorator implements EventHandler {
         }
         eventHandler.handleEvent(smarthome,sensorevent);
     }
-    }
 }

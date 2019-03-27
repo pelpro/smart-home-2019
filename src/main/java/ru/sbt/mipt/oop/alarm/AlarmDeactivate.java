@@ -16,14 +16,16 @@ public class AlarmDeactivate implements AlarmState {
     }
 
     @Override
+    public void setState(AlarmState state) {
+        this.state.setState(new AlarmAlert());
+    }
+
+    @Override
     public void alert() {
         setState(new AlarmAlert());
         state.alert();
     }
 
-    private void setState(AlarmState state) {
-        this.state = state;
-    }
 
     public AlarmState getState() {
         return state;

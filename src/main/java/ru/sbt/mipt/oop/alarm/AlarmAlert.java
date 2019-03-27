@@ -17,13 +17,15 @@ public class AlarmAlert implements AlarmState {
     }
 
     @Override
+    public void setState(AlarmState state) {
+        this.state.setState(new AlarmAlert());
+    }
+
+    @Override
     public void alert() {
         System.out.println("Pik-pik-pik wiu-wiu-wiu");
     }
 
-    private void setState(AlarmState state) {
-        this.state = state;
-    }
 
     public AlarmState getState() {
         return state;

@@ -1,5 +1,5 @@
 package ru.sbt.mipt.oop.alarm;
-public class Alarm {
+public class Alarm implements AlarmState{
     private AlarmState state;
     private String password;
 
@@ -17,7 +17,7 @@ public class Alarm {
         setState(state.getState());
     }
 
-    void setState(AlarmState state){
+    public void setState(AlarmState state){
         this.state = state;
     }
 
