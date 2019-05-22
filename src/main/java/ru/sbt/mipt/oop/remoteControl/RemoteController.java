@@ -14,14 +14,14 @@ public class RemoteController implements RemoteControl {
 
     public void pushMap(String buttonCode, Buttons button) {
         char buttonCharCode = buttonCode.charAt(0);
-        if (buttonCharCode >= 'A' && buttonCharCode <= 'D' || buttonCharCode >= '1' && buttonCharCode <= '4') {
-            buttons.put(buttonCode, button);
-        }
+        buttons.put(buttonCode, button);
     }
 
     @Override
     public void onButtonPressed(String buttonCode) {
         Buttons button = buttons.get(buttonCode);
-        button.execute();
+        if (button != null) {
+            button.execute();
+        }
     }
 }
